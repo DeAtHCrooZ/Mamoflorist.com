@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAMO.Florist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#6b8f71;
+      --dark:#2f3e34;
+      --light:#f6f6f4;
+      html {
+  scroll-behavior: smooth;
+}
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{font-family:'Poppins',sans-serif; background:var(--light); color:#333; line-height:1.6}
+    header{position:fixed; top:0; left:0; width:100%; background:white; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    nav{max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:20px}
+    nav a{margin-left:20px; text-decoration:none; color:#333; font-weight:500}
+
+    section{padding:120px 20px; max-width:1200px; margin:auto}
+    h1,h2,h3{font-family:'Playfair Display',serif; color:var(--dark)}
+
+    .hero{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center}
+    .hero h1{font-size:48px; margin-bottom:20px}
+    .btn{display:inline-block; padding:14px 32px; background:var(--primary); color:white; text-decoration:none; border-radius:40px; margin-top:20px}
+
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px}
+    .card{background:white; padding:30px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.05)}
+
+    .features{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; text-align:center}
+
+    footer{background:var(--dark); color:white; padding:60px 20px}
+    footer a{color:#ddd; text-decoration:none}
+
+    /* Scroll Animation */
+    .reveal{opacity:0; transform:translateY(60px); transition:1s ease}
+    .reveal.active{opacity:1; transform:none}
+  </style@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr; /* Gambar pindah ke bawah teks di HP */
+    text-align: center;
+    
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  nav a {
+    margin: 0 5px;
+    font-size: 14px;
+  }
+}>
+</head>
+<body>
+
+<header>
+  <nav>
+    <strong>MAMO.FLORIST</strong>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#produk">Produk</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </nav>
+</header>
+
+<section id="home" class="hero reveal">
+  <div>
+    <h1>Sentuhan Lembut<br/>Penuh Makna</h1>
+    <p>Di Mamo Florist, kami merangkai memori yang akan terus mekar di ingatan.</p>
+    <a class="btn" href="#produk">Lihat Produk</a>
+  </div>
+  <div>
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" style="width:100%; border-radius:30px" />
+  </div>
+</section>
+
+<section id="produk" class="reveal">
+  <h2>Jenis Bunga</h2>
+  <div class="grid">
+    <div class="card">Fresh Flower</div>
+    <div class="card">Artificial Flower</div>
+    <div class="card">Stand Flower</div>
+    <div class="card">Karangan Bunga</div>
+    <div class="card">Other Product</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="features">
+    <div class="card">🌸 Bunga Segar Setiap Hari</div>
+    <div class="card">⚡ Pengiriman Hari yang Sama</div>
+    <div class="card">💬 Konsultasi Gratis</div>
+    <div class="card">✅ Garansi Kepuasan</div>
+  </div>
+</section>
+
+<section id="layanan" class="reveal">
+  <h2>Layanan Kami</h2>
+  <div class="grid">
+    <div class="card"><h3>Hampers</h3><p>Desain memukau sesuai kebutuhan Anda.</p></div>
+    <div class="card"><h3>Desain Custom</h3><p>Untuk acara besar maupun pribadi.</p></div>
+    <div class="card"><h3>Backdrop Bunga</h3><p>Pemasangan profesional & elegan.</p></div>
+  </div>
+</section>
+
+<section id="tentang" class="reveal">
+  <h2>Cerita di Balik MAMO.FLORIST</h2>
+  <p>Berawal dari kecintaan akan keindahan bunga, kami hadir untuk menghadirkan kebahagiaan di setiap momen spesial Anda.</p>
+</section>
+
+<section id="kontak" class="reveal">
+  <h2>Mari Terhubung</h2>
+  <p>Jl. H. Kaiman, Jakarta Timur</p>
+  <p>📞 +62 858-9308-2998</p>
+  <p>✉️ Mamo.Florist@gmail.com</p>
+  <a class="btn" href="https://wa.me/6285893082998">WhatsApp Kami</a>
+</section>
+
+<footer>
+  <p>© 2026 MAMO.FLORIST</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('active'); }
+    });
+  }, {threshold:0.15});
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
